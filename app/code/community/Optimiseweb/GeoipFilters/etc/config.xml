@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* @package    Optimiseweb_GeoipFilters
+* @author     Kathir Vel (vkathirvel@gmail.com)
+* @copyright  Copyright (c) 2015 Kathir Vel
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+
+    <modules>
+        <Optimiseweb_GeoipFilters>
+            <version>0.1.0</version>
+        </Optimiseweb_GeoipFilters>
+    </modules>
+
+    <adminhtml>
+        
+        <translate>
+            <modules>
+                <Optimiseweb_GeoipFilters>
+                    <files>
+                        <default>Optimiseweb_GeoipFilters.csv</default>
+                    </files>
+                </Optimiseweb_GeoipFilters>
+            </modules>
+        </translate>
+        
+    </adminhtml>
+
+    <global>
+
+        <blocks>
+            <optimiseweb_geoipfilters>
+                <class>Optimiseweb_GeoipFilters_Block</class>
+            </optimiseweb_geoipfilters>
+        </blocks>
+
+        <helpers>
+            <optimiseweb_geoipfilters>
+                <class>Optimiseweb_GeoipFilters_Helper</class>
+            </optimiseweb_geoipfilters>
+        </helpers>
+
+        <models>
+            <optimiseweb_geoipfilters>
+                <class>Optimiseweb_GeoipFilters_Model</class>
+            </optimiseweb_geoipfilters>
+        </models>
+        
+        <events>
+            <payment_method_is_active>
+                <observers>
+                    <optimiseweb_geoipfilters_payment_method_is_active>
+                        <type>singleton</type>
+                        <class>optimiseweb_geoipfilters/observer</class>
+                        <method>paymentMethodIsActive</method>
+                    </optimiseweb_geoipfilters_payment_method_is_active>
+                </observers>
+            </payment_method_is_active>
+        </events>
+
+    </global>
+    
+</config>
